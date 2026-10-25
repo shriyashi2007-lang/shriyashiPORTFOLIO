@@ -1,0 +1,114 @@
+[
+  {
+    "name": "dev-track-",
+    "description": null,
+    "language": "JavaScript",
+    "homepage": null,
+    "html_url": "https://github.com/shriyashi2007-lang/dev-track-",
+    "updated_at": "2026-10-25T07:08:31Z",
+    "topics": [],
+    "size": 773,
+    "fork": false,
+    "archived": false,
+    "stargazers_count": 1,
+    "owner": {
+      "login": "shriyashi2007-lang"
+    }
+  },
+  {
+    "name": "student-resume-builder",
+    "description": null,
+    "language": "CSS",
+    "homepage": "https://student-resume-builder.vercel.app",
+    "html_url": "https://github.com/shriyashi2007-lang/student-resume-builder",
+    "updated_at": "2026-10-05T04:47:56Z",
+    "topics": [],
+    "size": 8,
+    "fork": false,
+    "archived": false,
+    "stargazers_count": 2,
+    "owner": {
+      "login": "shriyashi2007-lang"
+    }
+  },
+  {
+    "name": "Student-Scoreboard",
+    "description": null,
+    "language": "JavaScript",
+    "homepage": "https://student-scoreboard-five.vercel.app",
+    "html_url": "https://github.com/shriyashi2007-lang/Student-Scoreboard",
+    "updated_at": "2026-10-22T15:22:17Z",
+    "topics": [],
+    "size": 81,
+    "fork": false,
+    "archived": false,
+    "stargazers_count": 1,
+    "owner": {
+      "login": "shriyashi2007-lang"
+    }
+  },
+  {
+    "name": "Ai-Productivity-Dashboard",
+    "description": null,
+    "language": "JavaScript",
+    "homepage": "https://ai-productivity-dashboard-taupe.vercel.app",
+    "html_url": "https://github.com/shriyashi2007-lang/Ai-Productivity-Dashboard",
+    "updated_at": "2026-10-06T06:01:58Z",
+    "topics": [],
+    "size": 62,
+    "fork": false,
+    "archived": false,
+    "stargazers_count": 1,
+    "owner": {
+      "login": "shriyashi2007-lang"
+    }
+  },
+  {
+    "name": "Supervisor-Feedback-Analyzer-Trinethra-Module",
+    "description": null,
+    "language": "JavaScript",
+    "homepage": null,
+    "html_url": "https://github.com/shriyashi2007-lang/Supervisor-Feedback-Analyzer-Trinethra-Module",
+    "updated_at": "2026-10-05T04:47:59Z",
+    "topics": [],
+    "size": 16731,
+    "fork": false,
+    "archived": false,
+    "stargazers_count": 2,
+    "owner": {
+      "login": "shriyashi2007-lang"
+    }
+  },
+  {
+    "name": "async-Weather-Tracker",
+    "description": null,
+    "language": "HTML",
+    "homepage": "https://async-weather-tracker-jade.vercel.app",
+    "html_url": "https://github.com/shriyashi2007-lang/async-Weather-Tracker",
+    "updated_at": "2026-10-05T04:47:51Z",
+    "topics": [],
+    "size": 110,
+    "fork": false,
+    "archived": false,
+    "stargazers_count": 2,
+    "owner": {
+      "login": "shriyashi2007-lang"
+    }
+  },
+  {
+    "name": "weather-data-visualizer-",
+    "description": null,
+    "language": "Python",
+    "homepage": null,
+    "html_url": "https://github.com/shriyashi2007-lang/weather-data-visualizer-",
+    "updated_at": "2026-10-06T06:00:33Z",
+    "topics": [],
+    "size": 29,
+    "fork": false,
+    "archived": false,
+    "stargazers_count": 1,
+    "owner": {
+      "login": "shriyashi2007-lang"
+    }
+  }
+]
