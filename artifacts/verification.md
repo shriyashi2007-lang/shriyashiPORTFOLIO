@@ -1,5 +1,11 @@
 # Verification — 25 October 2026
 
+## Theme update — 26 October 2026
+
+Applied the latest user-supplied burgundy textile background and gold/ivory/lotus-rose palette. `npm run lint` passed. Production build passed. All four responsive layout/accessibility checks passed again at 360, 768, 1280 and 1920 pixels with no serious/critical axe violations, horizontal overflow, broken images or invalid internal links. Reviewed desktop and mobile screenshots. The earlier full suite and Lighthouse scores below are historical; Lighthouse was not rerun for this visual update.
+
+Latest screenshots: `artifacts/heritage-desktop.png`, `artifacts/heritage-mobile.png`, `artifacts/heritage-projects.png`; `docs/preview.png` contains the updated preview.
+
 Verified against the final dark editorial theme requested in chat. Source is a standalone React 18 + TypeScript Vite application; no DevTrack application files are included.
 
 | Command/check | Result |

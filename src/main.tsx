@@ -10,6 +10,7 @@ import "@fontsource/caveat/latin-500.css";
 import App from "./App";
 import "./styles/index.css";
 import "./styles/theme.css";
+import "./styles/heritage.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />

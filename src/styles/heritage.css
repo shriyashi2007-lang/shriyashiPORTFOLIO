@@ -1,0 +1,472 @@
+/* User-supplied textile reference: velvet burgundy, ivory, gold and lotus rose. */
+:root {
+  --bg: #410918;
+  --bg-alt: #511020;
+  --surface: #5d1729;
+  --navy: #fff0d7;
+  --navy-deep: #280610;
+  --ink: #f5e6ce;
+  --muted: #dcc5af;
+  --accent: #edc17b;
+  --ghost: #f4c4820b;
+  --line: #eac68b36;
+  --shadow: 0 15px 40px -12px #15010780;
+  --shadow-hover: 0 25px 55px -12px #150107a0;
+}
+html {
+  background: #490b19;
+}
+body {
+  padding: 24px;
+  background-color: #693b26;
+  background-image:
+    linear-gradient(0deg, #3e0919 0, transparent 100px),
+    url("/assets/theme/ornate-reference.png");
+  background-size:
+    100% 100%,
+    cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
+#root {
+  position: relative;
+  isolation: isolate;
+  background: #410918 url("/assets/theme/velvet-grain.svg");
+  box-shadow:
+    0 0 0 1px #d7b16b,
+    0 0 0 5px #3d0819,
+    0 0 0 6px #d7b16b80,
+    0 12px 70px #20000b88;
+  border-radius: 12px;
+  overflow: clip;
+}
+#root:before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid #d7b16b35;
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 70;
+}
+.header,
+.header.scrolled {
+  background: #3d0818f5;
+}
+.nav {
+  border-bottom-color: #edc17b35;
+}
+.hero {
+  background:
+    radial-gradient(ellipse at 85% 65%, #973a4845, transparent 60%),
+    url("/assets/theme/velvet-grain.svg"),
+    linear-gradient(115deg, #400817, #611123);
+}
+.hero-eyebrow,
+.section-meta,
+.fine-print,
+.github-status {
+  color: #dcc5af;
+}
+.hero-copy > .script {
+  color: #edc17b;
+}
+.hero h1 {
+  color: #fff0d7;
+}
+.hero h1 > span,
+.wordmark span,
+.accent {
+  color: #edc17b;
+}
+.hero-description {
+  color: #ead5be;
+}
+.hero-subtitle {
+  color: #ecd3b7;
+}
+.rotating-role,
+.rotating-role > span {
+  color: #eac48f;
+}
+.hero-eyebrow i {
+  background: #edc17b;
+  box-shadow: 0 0 15px #edc17b33;
+}
+.button,
+.nav-resume {
+  background: #f5dfb2;
+  color: #490c1d;
+  border-color: #e5bc75;
+}
+.button:hover {
+  background: #f7c881;
+  color: #410917;
+}
+.button.outline {
+  color: #f4d7a2;
+  border-color: #d7b16b88;
+}
+.button.outline:hover {
+  background: #7d283e;
+}
+.section,
+.section:nth-child(even) {
+  background-image: url("/assets/theme/velvet-grain.svg");
+  background-color: #410918;
+}
+.section:nth-child(even) {
+  background-color: #4b0b1e;
+}
+.heading-wrap h2,
+.large-serif {
+  color: #fff0d7;
+}
+.heading-wrap > .script,
+.script {
+  color: #e5adad;
+}
+.script:after {
+  background: #e5adad88;
+}
+.banner {
+  background: #d8b476;
+  color: #3e1020;
+  border-block: 1px solid #f3d39a;
+}
+.banner-inner {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(20px, 2.6vw, 34px);
+  letter-spacing: 0.045em;
+}
+.banner-inner > span {
+  color: #722a32;
+}
+.body-serif,
+.section-intro > p {
+  color: #ead4bf;
+}
+.chip,
+.skill-card .chip {
+  color: #f0d9bd;
+  background: #edc17b08;
+  border-color: #e8c78d40;
+}
+.chip:hover {
+  border-color: #e8c78d;
+}
+.tool-tile {
+  color: #f0d6b1 !important;
+  background: #f2ca8b0a;
+  border-color: #eac68b40;
+}
+.skill-card,
+.certificate,
+.project-card,
+.contact-form,
+.academic-grid article {
+  background: #591326;
+  border-color: #e2b56f40;
+}
+.skill-card:hover,
+.certificate:hover {
+  border-color: #e2b56f88;
+}
+.skill-symbol,
+.certificate-top {
+  color: #eac17d;
+}
+.project-info h3,
+.skill-card h3,
+.certificate h3,
+.experience-card h3,
+.education-entry h3 {
+  color: #fff0da;
+}
+.project-info > p,
+.experience-card p,
+.contact-grid .body-serif {
+  color: #ead4c2;
+}
+.project-category,
+.project-info > time {
+  color: #e2c29f;
+}
+.art-blue {
+  background: linear-gradient(135deg, #45583c, #2d3c2e);
+}
+.art-lavender {
+  background: linear-gradient(135deg, #855163, #582536);
+}
+.art-peach {
+  background: linear-gradient(135deg, #9b6447, #663829);
+}
+.art-mint {
+  background: linear-gradient(135deg, #6b7047, #42482c);
+}
+.art-pink {
+  background: linear-gradient(135deg, #8c3e55, #5c1a32);
+}
+.art-sand {
+  background: linear-gradient(135deg, #827044, #504128);
+}
+.art-title,
+.project-symbol svg {
+  color: #fff0d7;
+}
+.project-open {
+  background: #f1d7a6;
+  color: #521229;
+}
+.art-caption,
+.art-number {
+  color: #f1dfc9;
+}
+.art-star {
+  color: #ebcc91;
+}
+.education-badges > span {
+  background: #dbb67c15;
+  color: #f1dab4;
+  border-color: #d7b16b55;
+}
+.experience-number {
+  color: #d4ad83;
+}
+.stat-number {
+  color: #efcb8e;
+}
+.certificate-pending {
+  color: #e5ccb4;
+  border-color: #eac68b55;
+}
+.unverified {
+  background: #e6ba7909;
+  color: #e8cdb2;
+  border-left-color: #dbb277;
+}
+.contact-title,
+.contact-email {
+  color: #f7dfb7;
+}
+.contact-form input,
+.contact-form textarea {
+  color: #fff0da;
+  border-color: #e8c78d55;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #dcbfaf;
+}
+.contact-form label,
+.unconfigured p,
+.location,
+.form-top {
+  color: #e6ccb3;
+}
+.field-error {
+  color: #ffc6c0;
+}
+.contact-grid {
+  background-image: url("/assets/theme/velvet-grain.svg");
+}
+.portfolio-device {
+  background: linear-gradient(135deg, #925261, #621b34 60%, #461126);
+  border-color: #25060f;
+  box-shadow:
+    inset 0 0 0 1px #dcb17488,
+    3px 2px 0 2px #b58567,
+    18px 35px 70px #20000b66;
+}
+.device-island {
+  background: #2b0b17;
+}
+.device-browser {
+  background: #380d20;
+  color: #ffecd2;
+}
+.device-top {
+  color: #f6d6a4;
+  border-color: #edc17b50;
+}
+.device-title {
+  color: #fff0dc;
+}
+.device-title em {
+  color: #edc6bf;
+}
+.device-subtitle {
+  color: #f2dcc5;
+}
+.botanical-art > span {
+  background: linear-gradient(
+    125deg,
+    #f3c5b7,
+    #cf8390 32%,
+    #96394f 70%,
+    #6c1d37
+  );
+  box-shadow:
+    inset 5px 2px 14px #ffe5c966,
+    inset -5px -8px 20px #661b3c99,
+    4px 10px 17px #3f082755;
+}
+.botanical-art > span:nth-child(2n) {
+  background: linear-gradient(120deg, #f7dcc1, #dca5a2 35%, #a85365 75%);
+}
+.botanical-art > i {
+  background: radial-gradient(
+    circle at 30% 20%,
+    #f8ddb0,
+    #d8b264 40%,
+    #96713f 75%
+  );
+  box-shadow: 0 5px 15px #3f092788;
+}
+.device-monogram > span {
+  color: #ffefd0;
+}
+.device-monogram .sticker-dot {
+  color: #eac17d;
+}
+.device-note {
+  color: #f4d9be;
+}
+.device-note em {
+  color: #e7b3b3;
+}
+.note-line {
+  background: #e6bc7e88;
+}
+.visual-caption {
+  color: #dfc6af;
+}
+footer {
+  background: #2b0612 url("/assets/theme/velvet-grain.svg");
+  border-top: 1px solid #d7b16b55;
+}
+footer .wordmark,
+.footer-nav a {
+  color: #f6dfc1;
+}
+.footer-main > p,
+.footer-bottom {
+  color: #dec2a9;
+}
+.mobile-menu {
+  background: linear-gradient(140deg, #3f081a, #721d35);
+}
+.mobile-menu nav > a {
+  color: #fff0d7;
+}
+.mobile-menu nav > a[aria-current] {
+  color: #edc17b;
+}
+.icon-button,
+.social-row a {
+  color: #f4d9b7;
+}
+.skip {
+  background: #f4d9b7;
+  color: #480c1c;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline-color: #f2cf8e !important;
+}
+.resume-pending {
+  color: #e8ceb0;
+  border-color: #e8c78d55;
+}
+::selection {
+  background: #eac17d;
+  color: #410918;
+}
+@media (max-width: 800px) {
+  body {
+    padding: 17px;
+  }
+  #root {
+    border-radius: 9px;
+  }
+  .container {
+    width: calc(100% - 40px);
+  }
+  .desktop-nav {
+    gap: 15px;
+  }
+  .wordmark {
+    font-size: 15px;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+    background-size:
+      100% 100%,
+      auto 130vh;
+    background-position: center top;
+  }
+  #root:before {
+    inset: 5px;
+  }
+  .container {
+    width: calc(100% - 32px);
+  }
+  .hero h1 {
+    font-size: clamp(60px, 16.8vw, 94px);
+  }
+  .hero-grid {
+    padding-top: 45px;
+  }
+  .wordmark {
+    font-size: 15px;
+    letter-spacing: 0.1em;
+  }
+  .hero-actions {
+    gap: 14px;
+  }
+  .hero .button {
+    padding: 0 14px;
+    font-size: 10px;
+  }
+  .hero-actions .text-link {
+    font-size: 9px;
+  }
+  .tool-row {
+    gap: 6px;
+  }
+  .tool-tile {
+    width: 30px;
+    height: 30px;
+  }
+  .tool-label {
+    font-size: 5px;
+  }
+  .heading-wrap h2 {
+    font-size: clamp(35px, 9.5vw, 50px);
+  }
+  .banner-inner {
+    font-size: 18px;
+    letter-spacing: 0.025em;
+  }
+  .contact-email {
+    font-size: 14px;
+  }
+  .portfolio-device {
+    width: 242px;
+    height: 447px;
+  }
+  .device-note {
+    font-size: 17px;
+  }
+  .hero-visual {
+    max-width: 320px;
+  }
+  .contact-title {
+    font-size: 44px;
+  }
+}

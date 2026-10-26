@@ -2,7 +2,7 @@
 
 A standalone React 18 + TypeScript portfolio for Shriyashi. Source repository: https://github.com/shriyashi2007-lang/shriyashiPORTFOLIO. Originally developed in a separate `portfolio/` folder alongside DevTrack; this repository contains only the portfolio.
 
-The dark editorial theme follows the later screenshot supplied in chat: charcoal and midnight blue, ivory serif headings, seafoam accents, and rich project panels. Theme overrides live in `src/styles/theme.css`. This replaces the earlier light-only direction. The hero phone and botanical sculpture are original CSS artwork.
+The current theme follows the latest textile reference supplied on 26 October: velvet burgundy, antique gold, ivory, and lotus rose. The supplied image frames the page, with an original subtle SVG grain over the interior. Core styles live in `src/styles/theme.css`, and textile-specific decoration in `src/styles/heritage.css`. The hero phone and botanical sculpture are original CSS artwork. This replaces the earlier charcoal/seafoam direction.
 
 Browser contact tests start an isolated second development server with a mock endpoint. They verify configured form validation, loading, success and failure without sending real messages.
 
