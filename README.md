@@ -10,11 +10,11 @@ Browser contact tests start an isolated second development server with a mock en
 
 ## Magical opening
 
-A reference-inspired fairy with a genuinely transparent background flies independently over the burgundy welcome screen. She makes two complete circles, stays upright with a counter-rotation, then showers pink/gold flowers as the website appears. There is no forest or rectangular photograph in the scene. The scene lasts about six seconds and is an introductory animation, not a network-loading indicator.
+A reference-inspired transparent fairy enters from beyond the **right edge**, travels in broad looping arcs across the **entire viewport toward the left**, and exits beyond the left edge. Sparkles and flowers accompany her. The actual portfolio then opens through an expanding circular wipe. There is no centred orbit card, forest photograph or separate welcome headline. The full-page transition lasts about 5.4 seconds and is not a network-loading indicator.
 
 Visitors can choose **Skip to portfolio** or press **Escape**. Keyboard focus stays within the welcome while it is open, then returns to the site. Scrolling and background interaction are restored on dismissal. Visitors who prefer reduced motion open the portfolio immediately. Ordinary in-page navigation does not replay the welcome.
 
-The transparent character is `public/assets/fairy/fairy-cutout.png`, generated from the supplied reference with a fully opaque embroidered ivory gown. The original reference is retained separately as `forest-fairy.png` and is not used by the intro. Timing and flowers are in `src/components/ui/FairyWelcome.tsx`; orbit, counter-rotation and reveal styling are in `src/styles/fairy-welcome.css`. Run `node scripts/review-fairy.mjs` against the local dev server to capture desktop and mobile states.
+The transparent character is `public/assets/fairy/fairy-cutout.png`, generated from the supplied reference with a fully opaque embroidered ivory gown. The original reference is retained separately as `forest-fairy.png` and is not used by the intro. The viewport-scaled Bézier flight path, timing and flowers are in `src/components/ui/FairyWelcome.tsx`; CSS motion-path and circular-mask styling are in `src/styles/fairy-welcome.css`. Run `node scripts/review-fairy.mjs` against the local dev server to capture the desktop/mobile transition and record `artifacts/fairy-cross-screen.webm`.
 
 ![Lotus-pink fairy welcome](docs/fairy-welcome.png)
 

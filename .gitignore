@@ -9,3 +9,5 @@ playwright-report/
 artifacts/*.png
 artifacts/lighthouse.*
 artifacts/links.json
+artifacts/*.webm
+artifacts/fairy-video/

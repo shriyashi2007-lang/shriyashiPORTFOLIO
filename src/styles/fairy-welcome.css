@@ -444,3 +444,135 @@
     transition: none !important;
   }
 }
+/* The entrance crosses the entire viewport, then opens the actual page in a circular wipe. */
+@property --portfolio-reveal {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+.fairy-welcome {
+  --portfolio-reveal: 0px;
+  mask-image: radial-gradient(
+    circle at 50% 48%,
+    transparent var(--portfolio-reveal),
+    #000 calc(var(--portfolio-reveal) + 1px)
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 48%,
+    transparent var(--portfolio-reveal),
+    #000 calc(var(--portfolio-reveal) + 1px)
+  );
+  transition: --portfolio-reveal 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.fairy-welcome.is-blooming,
+.fairy-welcome.is-leaving {
+  --portfolio-reveal: 75vmax;
+}
+.fairy-orbit {
+  --fairy-size: min(46vh, 440px);
+  left: 0;
+  top: 0;
+  width: var(--fairy-size);
+  height: var(--fairy-size);
+  transform: none;
+  offset-path: var(--flight-path);
+  offset-distance: 0%;
+  offset-rotate: 0deg;
+  offset-anchor: 50% 50%;
+  animation: fairy-across-screen 4.2s linear both;
+}
+.fairy-rider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  animation: none;
+}
+.fairy-welcome.is-blooming .fairy-orbit,
+.fairy-welcome.is-leaving .fairy-orbit {
+  animation: fairy-across-screen 4.2s linear both;
+  animation-play-state: paused;
+  offset-distance: 100%;
+  visibility: hidden;
+}
+.fairy-portrait {
+  animation: fairy-bank 1.05s ease-in-out 4;
+}
+.fairy-circle-guide,
+.welcome-wordmark,
+.welcome-bottom-note,
+.welcome-progress {
+  display: none;
+}
+.fairy-welcome:before {
+  display: none;
+}
+.fairy-welcome .welcome-content {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.fairy-scene {
+  background: radial-gradient(
+    ellipse at 65% 40%,
+    #662039,
+    #410918 65%,
+    #2a0714
+  );
+}
+.welcome-shade {
+  background: none;
+}
+.fairy-flight-trail {
+  left: 70%;
+  top: 60%;
+  box-shadow:
+    15px 4px 2px #edb6d8,
+    31px 13px 2px #f0d9a6,
+    49px 5px 3px #dc8bbb,
+    66px 18px 4px #edbfcd;
+}
+.fairy-welcome .falling-flower {
+  animation: fairy-flower-fall var(--petal-duration) var(--petal-delay) linear
+    infinite;
+}
+.is-leaving .fairy-scene,
+.is-leaving .welcome-shade,
+.is-leaving .fairy-stage {
+  opacity: 1;
+  transition: none;
+}
+@keyframes fairy-across-screen {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+@keyframes fairy-bank {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+@media (max-width: 600px) {
+  .fairy-orbit {
+    --fairy-size: min(40vh, 300px);
+    left: 0;
+    top: 0;
+  }
+  .welcome-skip {
+    top: 20px;
+    right: 20px;
+  }
+}

@@ -9,7 +9,9 @@ test("transparent fairy circles, sprinkles flowers and reveals the site", async 
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.clock.install();
+  const now = new Date("2026-10-27T00:00:00Z");
+  await page.clock.install({ time: now });
+  await page.clock.pauseAt(new Date(now.getTime() + 100));
   await page.goto("/");
   const intro = page.getByRole("dialog", { name: "Let a little magic in." });
   await expect(intro).toBeVisible();
@@ -37,20 +39,42 @@ test("transparent fairy circles, sprinkles flowers and reveals the site", async 
     await intro
       .locator(".fairy-orbit")
       .evaluate((el) => getComputedStyle(el).animationName),
-  ).toBe("fairy-circle");
+  ).toBe("fairy-across-screen");
+  const trajectory = await intro.locator(".fairy-orbit").evaluate((el) => {
+    const animation = el.getAnimations()[0];
+    animation.pause();
+    const points = Array.from({ length: 9 }, (_, i) => {
+      animation.currentTime = i * 525;
+      const box = el.getBoundingClientRect();
+      return { x: box.x + box.width / 2, y: box.y + box.height / 2 };
+    });
+    animation.currentTime = 0;
+    animation.play();
+    return points;
+  });
+  const viewport = await page.evaluate(() => ({
+    width: innerWidth,
+    height: innerHeight,
+  }));
+  expect(trajectory[0].x).toBeGreaterThan(viewport.width);
+  expect(trajectory[8].x).toBeLessThan(0);
+  expect(
+    Math.max(...trajectory.map((point) => point.y)) -
+      Math.min(...trajectory.map((point) => point.y)),
+  ).toBeGreaterThan(viewport.height * 0.22);
   expect(
     await page.locator("main").evaluate((el) => !!el.closest("[inert]")),
   ).toBe(true);
   await expect(
     page.getByRole("button", { name: "Skip to portfolio" }),
   ).toBeFocused();
-  await page.clock.runFor(3200);
+  await page.clock.runFor(4200);
   await expect(intro).toHaveClass(/is-blooming/);
   await expect(intro.locator(".falling-flower")).toHaveCount(26);
-  await expect(
-    intro.getByText("A shower of flowers, and a new beginning."),
-  ).toBeVisible();
-  await page.clock.runFor(2850);
+  await expect(intro.locator("#fairy-welcome-description")).toHaveText(
+    "A shower of flowers, and a new beginning.",
+  );
+  await page.clock.runFor(1300);
   await expect(intro).toHaveCount(0);
   expect(
     await page.locator("main").evaluate((el) => !!el.closest("[inert]")),
@@ -92,7 +116,6 @@ for (const viewport of [
   }) => {
     await page.setViewportSize(viewport);
     await page.emulateMedia({ reducedMotion: "no-preference" });
-    await page.clock.install();
     await page.goto("/");
     await expect(page.getByTestId("fairy-welcome")).toBeVisible();
     const results = await new AxeBuilder({ page }).analyze();
@@ -106,9 +129,8 @@ for (const viewport of [
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBe(true);
-    await page.clock.runFor(3500);
     await page.screenshot({
       path: `artifacts/fairy-welcome-${viewport.width}.png`,
     });
-    await page.clock.runFor(3000);
+    await expect(page.getByTestId("fairy-welcome")).toHaveCount(0);
   });

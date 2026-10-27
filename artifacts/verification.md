@@ -1,5 +1,9 @@
 # Verification — 25 October 2026
 
+## Full-viewport right-to-left transition correction — 27 October 2026
+
+Replaced the centred circle with an off-screen-right to off-screen-left, viewport-wide looping motion path. The portfolio itself opens through a circular mask after the fairy crosses the screen. Lint, production build and all five focused browser tests passed. Tests sample actual animation positions to verify that the fairy begins right of the viewport, exits left of it, and makes substantial vertical loops. Desktop and mobile accessibility, transparency, Skip/Escape, reduced motion and phase timing are covered. Recorded `artifacts/fairy-cross-screen.webm` and visually reviewed the crossing and circular reveal. This supersedes the fixed central orbit described below.
+
 ## Transparent circling fairy correction — 27 October 2026
 
 Removed the photographic backdrop. Added a genuinely transparent reference-inspired fairy asset and two circular flights with counter-rotation, followed by flowers and the website reveal. The PNG has an alpha channel spanning 0–255. Lint, production build and all five focused browser tests passed. Browser coverage checks the transparent corner pixel, absence of the forest layer, circular CSS animation, phase progression, Skip/Escape, focus restoration, reduced-motion bypass and desktop/mobile accessibility. Desktop and mobile screenshots were visually reviewed. Earlier full-screen photograph notes below are superseded by this correction.
