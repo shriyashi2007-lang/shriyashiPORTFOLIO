@@ -469,7 +469,7 @@
   --portfolio-reveal: 75vmax;
 }
 .fairy-orbit {
-  --fairy-size: min(46vh, 440px);
+  --fairy-size: 92dvh;
   left: 0;
   top: 0;
   width: var(--fairy-size);
@@ -497,7 +497,8 @@
   visibility: hidden;
 }
 .fairy-portrait {
-  animation: fairy-bank 1.05s ease-in-out 4;
+  animation: none;
+  transform: none;
 }
 .fairy-circle-guide,
 .welcome-wordmark,
@@ -567,12 +568,63 @@
 }
 @media (max-width: 600px) {
   .fairy-orbit {
-    --fairy-size: min(40vh, 300px);
+    --fairy-size: 92dvh;
     left: 0;
     top: 0;
   }
   .welcome-skip {
     top: 20px;
     right: 20px;
+  }
+}
+/* Full-height, upright fairy; a sparkle flourish precedes the portfolio reveal. */
+.fairy-welcome.is-blooming {
+  transition-delay: 0.35s;
+}
+.fairy-welcome.is-leaving {
+  transition-delay: 0s;
+}
+.fairy-portrait {
+  transform: none !important;
+  animation: none !important;
+}
+.whole-flower:after {
+  content: "✧";
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  color: #fff2bd;
+  font:
+    18px/1 Georgia,
+    serif;
+  text-shadow:
+    0 0 10px #fff3c0,
+    0 0 20px #f5b8dc;
+  animation: flower-glitter 1.2s ease-in-out infinite;
+}
+.single-petal:after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff1bf;
+  box-shadow: 0 0 7px #ffecc6;
+  animation: flower-glitter 1.4s ease-in-out infinite;
+}
+.is-blooming .falling-flower {
+  filter: drop-shadow(0 0 9px #fbd8d5);
+}
+@keyframes flower-glitter {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
   }
 }

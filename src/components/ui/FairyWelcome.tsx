@@ -22,8 +22,9 @@ export default function FairyWelcome({
     const resize = () => {
       const w = window.innerWidth,
         h = window.innerHeight;
+      const flightY = (value: number) => h * (0.5 + (value - 0.5) * 0.16);
       setFlightPath(
-        `path("M ${1.45 * w} ${0.5 * h} C ${1.05 * w} ${0.23 * h}, ${0.5 * w} ${0.275 * h}, ${0.57 * w} ${0.48 * h} C ${0.62 * w} ${0.71 * h}, ${1.06 * w} ${0.68 * h}, ${0.94 * w} ${0.475 * h} C ${0.8 * w} ${0.2 * h}, ${0.2 * w} ${0.26 * h}, ${0.3 * w} ${0.5 * h} C ${0.42 * w} ${0.745 * h}, ${0.78 * w} ${0.675 * h}, ${0.63 * w} ${0.465 * h} C ${0.45 * w} ${0.24 * h}, ${0.12 * w} ${0.31 * h}, ${-0.45 * w} ${0.5 * h}")`,
+        `path("M ${1.45 * w} ${flightY(0.5)} C ${1.05 * w} ${flightY(0.23)}, ${0.5 * w} ${flightY(0.275)}, ${0.57 * w} ${flightY(0.48)} C ${0.62 * w} ${flightY(0.71)}, ${1.06 * w} ${flightY(0.68)}, ${0.94 * w} ${flightY(0.475)} C ${0.8 * w} ${flightY(0.2)}, ${0.2 * w} ${flightY(0.26)}, ${0.3 * w} ${flightY(0.5)} C ${0.42 * w} ${flightY(0.745)}, ${0.78 * w} ${flightY(0.675)}, ${0.63 * w} ${flightY(0.465)} C ${0.45 * w} ${flightY(0.24)}, ${0.12 * w} ${flightY(0.31)}, ${-0.45 * w} ${flightY(0.5)}")`,
       );
     };
     resize();
@@ -36,7 +37,7 @@ export default function FairyWelcome({
         phase === "leaving"
           ? onComplete()
           : setPhase(phase === "flying" ? "blooming" : "leaving"),
-      phase === "flying" ? 4200 : phase === "blooming" ? 1100 : 100,
+      phase === "flying" ? 4200 : phase === "blooming" ? 1600 : 100,
     );
     return () => clearTimeout(timeout);
   }, [phase, onComplete]);

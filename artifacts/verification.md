@@ -1,5 +1,9 @@
 # Verification — 25 October 2026
 
+## Upright full-height fairy and flower sparkle — 27 October 2026
+
+The character now uses 92% of viewport height and remains upright with no banking or image rotation. The right-to-left path has reduced vertical excursion to accommodate the tall figure. Flowers include glowing sparkle details, and a short flourish precedes the circular portfolio reveal. Lint, production build and all five focused browser tests passed. Browser assertions check the actual rendered height, lack of rotation, cross-screen travel, transparent asset, phase timings and accessibility. Updated desktop/mobile screenshots and the full recorded transition were reviewed.
+
 ## Full-viewport right-to-left transition correction — 27 October 2026
 
 Replaced the centred circle with an off-screen-right to off-screen-left, viewport-wide looping motion path. The portfolio itself opens through a circular mask after the fairy crosses the screen. Lint, production build and all five focused browser tests passed. Tests sample actual animation positions to verify that the fairy begins right of the viewport, exits left of it, and makes substantial vertical loops. Desktop and mobile accessibility, transparency, Skip/Escape, reduced motion and phase timing are covered. Recorded `artifacts/fairy-cross-screen.webm` and visually reviewed the crossing and circular reveal. This supersedes the fixed central orbit described below.

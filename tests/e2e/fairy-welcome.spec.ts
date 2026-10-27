@@ -61,7 +61,17 @@ test("transparent fairy circles, sprinkles flowers and reveals the site", async 
   expect(
     Math.max(...trajectory.map((point) => point.y)) -
       Math.min(...trajectory.map((point) => point.y)),
-  ).toBeGreaterThan(viewport.height * 0.22);
+  ).toBeGreaterThan(viewport.height * 0.02);
+  const fairySize = await intro
+    .locator(".fairy-portrait")
+    .evaluate((el) => ({
+      height: el.clientHeight,
+      transform: getComputedStyle(el).transform,
+      animation: getComputedStyle(el).animationName,
+    }));
+  expect(fairySize.height).toBeGreaterThanOrEqual(viewport.height * 0.9);
+  expect(fairySize.transform).toBe("none");
+  expect(fairySize.animation).toBe("none");
   expect(
     await page.locator("main").evaluate((el) => !!el.closest("[inert]")),
   ).toBe(true);
@@ -74,7 +84,7 @@ test("transparent fairy circles, sprinkles flowers and reveals the site", async 
   await expect(intro.locator("#fairy-welcome-description")).toHaveText(
     "A shower of flowers, and a new beginning.",
   );
-  await page.clock.runFor(1300);
+  await page.clock.runFor(1800);
   await expect(intro).toHaveCount(0);
   expect(
     await page.locator("main").evaluate((el) => !!el.closest("[inert]")),

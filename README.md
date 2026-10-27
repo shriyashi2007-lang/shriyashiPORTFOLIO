@@ -10,7 +10,7 @@ Browser contact tests start an isolated second development server with a mock en
 
 ## Magical opening
 
-A reference-inspired transparent fairy enters from beyond the **right edge**, travels in broad looping arcs across the **entire viewport toward the left**, and exits beyond the left edge. Sparkles and flowers accompany her. The actual portfolio then opens through an expanding circular wipe. There is no centred orbit card, forest photograph or separate welcome headline. The full-page transition lasts about 5.4 seconds and is not a network-loading indicator.
+A reference-inspired transparent fairy enters from beyond the **right edge**, travels in broad looping arcs across the **entire viewport toward the left**, and exits beyond the left edge. She remains upright without tilting and is sized to 92% of the viewport height. The shallow vertical flight keeps her tall silhouette in view. Glowing flower petals and sparkling blossoms accompany her, with a short sparkle flourish before the actual portfolio opens through an expanding circular wipe. There is no centred orbit card, forest photograph or separate welcome headline. The full-page transition lasts about 5.9 seconds and is not a network-loading indicator.
 
 Visitors can choose **Skip to portfolio** or press **Escape**. Keyboard focus stays within the welcome while it is open, then returns to the site. Scrolling and background interaction are restored on dismissal. Visitors who prefer reduced motion open the portfolio immediately. Ordinary in-page navigation does not replay the welcome.
 
