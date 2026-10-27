@@ -8,6 +8,16 @@ Browser contact tests start an isolated second development server with a mock en
 
 ![Dark editorial portfolio preview](docs/preview.png)
 
+## Magical opening
+
+A full-screen fairy entrance welcomes visitors on each full page load using the exact forest-fairy reference supplied on 27 October. The unedited photograph fills the scene with a gentle entrance/zoom, a softly extended forest background, sparkles and falling pink/gold flowers from the beginning. Flowers continue while the scene dissolves into the portfolio. This replaces the earlier small illustrated fairy. The scene lasts about six seconds. It is a photographic composition with CSS motion, not an AI-generated video or a network-loading indicator.
+
+Visitors can choose **Skip to portfolio** or press **Escape**. Keyboard focus stays within the welcome while it is open, then returns to the site. Scrolling and background interaction are restored on dismissal. Visitors who prefer reduced motion open the portfolio immediately. Ordinary in-page navigation does not replay the welcome.
+
+The supplied image is `public/assets/fairy/forest-fairy.png`. Timing and flower elements are in `src/components/ui/FairyWelcome.tsx`; full-screen composition, entrance and falling flowers are in `src/styles/fairy-welcome.css`. Desktop preserves the full figure against an extended forest backdrop; mobile fills the portrait viewport. Run `node scripts/review-fairy.mjs` against the local dev server to capture desktop and mobile states.
+
+![Lotus-pink fairy welcome](docs/fairy-welcome.png)
+
 ## Run locally
 
 Requires Node 22.12+ (verified using Node 24).

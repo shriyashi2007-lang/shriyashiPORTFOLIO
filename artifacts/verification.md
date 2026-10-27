@@ -1,5 +1,9 @@
 # Verification — 25 October 2026
 
+## Full-screen fairy update — 27 October 2026
+
+Replaced the small illustrated fairy with the exact supplied forest-fairy photograph in a full-viewport composition. Flowers now fall across the viewport from the entry phase and continue over the website reveal. Lint and production build passed. Five focused browser tests passed for entry/flower/reveal sequencing, Skip/Escape, focus restoration, reduced-motion bypass, and mobile/desktop axe checks with no serious or critical violations. A further assertion checks that the fairy image occupies the entire viewport layout. Latest visual captures: `artifacts/fairy-flowers-desktop.png`, `artifacts/fairy-flowers-mobile.png` and `docs/fairy-welcome.png`. Earlier Lighthouse measurements below are historical and do not measure this introductory scene.
+
 ## Theme update — 26 October 2026
 
 Applied the latest user-supplied burgundy textile background and gold/ivory/lotus-rose palette. `npm run lint` passed. Production build passed. All four responsive layout/accessibility checks passed again at 360, 768, 1280 and 1920 pixels with no serious/critical axe violations, horizontal overflow, broken images or invalid internal links. Reviewed desktop and mobile screenshots. The earlier full suite and Lighthouse scores below are historical; Lighthouse was not rerun for this visual update.

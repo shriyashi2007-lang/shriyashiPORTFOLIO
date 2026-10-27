@@ -16,6 +16,7 @@ const repo = {
   owner: { login: "shriyashi2007-lang" },
 };
 test.beforeEach(async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.route("https://api.github.com/**", (route) =>
     route.fulfill({
       json: route.request().url().includes("/readme") ? {} : repositoryEvidence,

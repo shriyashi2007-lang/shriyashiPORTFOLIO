@@ -1,0 +1,385 @@
+/* Full-screen photographic fairy entrance, using the user's supplied image unchanged. */
+.fairy-welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff5df;
+  background: transparent;
+}
+.fairy-scene,
+.welcome-shade,
+.fairy-stage {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.65s ease;
+  pointer-events: none;
+}
+.fairy-scene {
+  overflow: hidden;
+  background: #263527;
+}
+.fairy-forest-backdrop {
+  position: absolute;
+  inset: -5%;
+  background: url("/assets/fairy/forest-fairy.png") center/cover no-repeat;
+  filter: blur(20px) brightness(0.65);
+  transform: scale(1.08);
+}
+.fairy-portrait {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  animation: fairy-arrival 3.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 17%,
+    #000 83%,
+    transparent
+  );
+}
+.welcome-shade {
+  background:
+    linear-gradient(
+      0deg,
+      #170c19f0,
+      transparent 39%,
+      transparent 75%,
+      #101d1b99
+    ),
+    linear-gradient(
+      90deg,
+      #18231b55,
+      transparent 35%,
+      transparent 65%,
+      #18231b55
+    );
+}
+.fairy-welcome:before {
+  content: "";
+  position: absolute;
+  inset: 17px;
+  border: 1px solid #f4d99b55;
+  border-radius: 7px;
+  z-index: 4;
+  pointer-events: none;
+}
+.welcome-wordmark {
+  position: absolute;
+  left: 45px;
+  top: 36px;
+  z-index: 5;
+  font:
+    600 12px Inter,
+    sans-serif;
+  letter-spacing: 0.23em;
+  color: #fff0d3;
+}
+.welcome-wordmark span {
+  color: #f3c4d7;
+}
+.welcome-content {
+  position: absolute;
+  bottom: 65px;
+  left: 50%;
+  width: min(90%, 700px);
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+  transition:
+    opacity 0.35s,
+    transform 0.65s;
+}
+.welcome-eyebrow {
+  font:
+    400 8px Inter,
+    sans-serif;
+  letter-spacing: 0.27em;
+  color: #f3dbaf;
+}
+.welcome-content h2 {
+  font:
+    400 clamp(33px, 4.5vw, 60px)/1.2 "Playfair Display",
+    serif;
+  letter-spacing: -0.04em;
+  color: #fff4de;
+  margin: 15px 0 13px;
+  text-shadow: 0 2px 20px #1e101c;
+}
+.welcome-content h2 em {
+  color: #f2bbd0;
+  font-weight: 400;
+}
+.welcome-description {
+  font:
+    400 11px/1.8 Inter,
+    sans-serif;
+  color: #f2dfd8;
+  min-height: 20px;
+}
+.welcome-progress {
+  height: 1px;
+  width: 105px;
+  background: #e7d1a438;
+  margin: 22px auto 0;
+  overflow: hidden;
+}
+.welcome-progress span {
+  display: block;
+  height: 100%;
+  background: #f2c9c1;
+  transform-origin: left;
+  animation: fairy-progress 5.4s linear both;
+}
+.welcome-skip {
+  position: absolute;
+  right: 38px;
+  top: 25px;
+  z-index: 6;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #f1d49d99;
+  border-radius: 999px;
+  background: #15251fde;
+  backdrop-filter: blur(8px);
+  padding: 0 18px;
+  color: #fff0d3;
+  font:
+    400 11px Inter,
+    sans-serif;
+}
+.welcome-skip:hover {
+  background: #3f4d36;
+}
+.welcome-skip:focus-visible {
+  outline: 2px solid #f2cf8e;
+  outline-offset: 4px;
+}
+.welcome-bottom-note {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  white-space: nowrap;
+  color: #f1daca;
+  font:
+    400 6px Inter,
+    sans-serif;
+  letter-spacing: 0.22em;
+}
+.welcome-sparkle {
+  position: absolute;
+  width: var(--spark-size);
+  height: var(--spark-size);
+  background: #fff1be;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #ffd0e1;
+  animation: fairy-twinkle 2.2s var(--twinkle-delay) ease-in-out infinite;
+  opacity: 0.4;
+}
+.welcome-sparkle:nth-child(4n) {
+  width: 9px;
+  height: 9px;
+  clip-path: polygon(
+    50% 0,
+    62% 38%,
+    100% 50%,
+    62% 62%,
+    50% 100%,
+    38% 62%,
+    0 50%,
+    38% 38%
+  );
+}
+.fairy-flowers {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.falling-flower {
+  position: absolute;
+  left: var(--flower-left);
+  top: -65px;
+  opacity: 0;
+  color: var(--petal-pink);
+  animation: fairy-flower-fall var(--petal-duration) var(--petal-delay) linear
+    infinite;
+  will-change: transform, opacity;
+}
+.whole-flower {
+  font:
+    clamp(24px, 3vw, 46px)/1 Georgia,
+    serif;
+  text-shadow: 0 0 15px #ffb7d399;
+}
+.single-petal {
+  width: 15px;
+  height: 25px;
+  border-radius: 85% 8% 80% 22%;
+  background: linear-gradient(120deg, #fff0de, var(--petal-pink));
+  box-shadow: 0 0 12px #efa7c455;
+}
+.is-blooming .fairy-stage {
+  filter: drop-shadow(0 0 5px #ffc4de44);
+}
+.is-leaving {
+  pointer-events: none;
+}
+.is-leaving .fairy-scene,
+.is-leaving .welcome-shade {
+  opacity: 0;
+}
+.is-leaving .welcome-content,
+.is-leaving .welcome-wordmark,
+.is-leaving .welcome-skip,
+.is-leaving .welcome-bottom-note {
+  opacity: 0;
+}
+.is-leaving .fairy-stage {
+  opacity: 0;
+  transition: opacity 0.25s 0.35s;
+}
+.is-leaving:before {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+@keyframes fairy-arrival {
+  0% {
+    opacity: 0.3;
+    transform: translateY(3%) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1.03);
+  }
+}
+@keyframes fairy-flower-fall {
+  0% {
+    opacity: 0;
+    transform: translate(0, -20px) rotate(0deg) scale(0.6);
+  }
+  12% {
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--petal-x), calc(100dvh + 120px))
+      rotate(var(--petal-spin)) scale(1);
+  }
+}
+@keyframes fairy-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+@keyframes fairy-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (max-width: 600px) {
+  .fairy-portrait {
+    object-fit: cover;
+    object-position: 50% 45%;
+    mask-image: none;
+  }
+  .fairy-welcome:before {
+    inset: 10px;
+  }
+  .welcome-wordmark {
+    left: 26px;
+    top: 30px;
+    font-size: 9px;
+    letter-spacing: 0.13em;
+  }
+  .welcome-skip {
+    right: 24px;
+    top: 20px;
+    min-height: 40px;
+    font-size: 9px;
+    gap: 10px;
+    padding: 0 12px;
+  }
+  .welcome-content {
+    bottom: 65px;
+    width: calc(100% - 36px);
+  }
+  .welcome-content h2 {
+    font-size: 35px;
+  }
+  .welcome-eyebrow {
+    font-size: 6px;
+    letter-spacing: 0.19em;
+  }
+  .welcome-description {
+    font-size: 9px;
+  }
+  .welcome-bottom-note {
+    font-size: 5px;
+    bottom: 28px;
+    letter-spacing: 0.13em;
+  }
+  .single-petal {
+    width: 11px;
+    height: 19px;
+  }
+  .welcome-shade {
+    background: linear-gradient(
+      0deg,
+      #170c19f7,
+      transparent 47%,
+      transparent 78%,
+      #10201999
+    );
+  }
+}
+@media (max-height: 550px) {
+  .welcome-content {
+    bottom: 39px;
+  }
+  .welcome-content h2 {
+    font-size: 29px;
+    margin: 8px 0;
+  }
+  .welcome-progress {
+    margin-top: 10px;
+  }
+  .welcome-bottom-note {
+    bottom: 16px;
+  }
+  .welcome-eyebrow {
+    font-size: 6px;
+  }
+  .welcome-description {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fairy-welcome {
+    display: none;
+  }
+  .fairy-welcome * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
