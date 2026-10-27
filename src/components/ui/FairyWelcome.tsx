@@ -60,15 +60,20 @@ export default function FairyWelcome({
       data-testid="fairy-welcome"
     >
       <div className="fairy-scene" aria-hidden="true">
-        <div className="fairy-forest-backdrop" />
-        <img
-          className="fairy-portrait"
-          src="/assets/fairy/forest-fairy.png"
-          width="554"
-          height="554"
-          alt=""
-          fetchPriority="high"
-        />
+        <div className="fairy-circle-guide" />
+        <div className="fairy-orbit">
+          <div className="fairy-rider">
+            <img
+              className="fairy-portrait"
+              src="/assets/fairy/fairy-cutout.png"
+              width="1254"
+              height="1254"
+              alt=""
+              fetchPriority="high"
+            />
+            <span className="fairy-flight-trail" />
+          </div>
+        </div>
       </div>
       <div className="welcome-shade" aria-hidden="true" />
       <span className="welcome-wordmark">
@@ -99,8 +104,8 @@ export default function FairyWelcome({
                   "--flower-left": `${2 + ((i * 43) % 96)}%`,
                   "--petal-x": `${((i * 31) % 150) - 75}px`,
                   "--petal-spin": `${(i % 2 ? 1 : -1) * (140 + i * 17)}deg`,
-                  "--petal-delay": `${i * 0.11}s`,
-                  "--petal-duration": `${3.1 + (i % 5) * 0.3}s`,
+                  "--petal-delay": `${i * 0.035}s`,
+                  "--petal-duration": `${1.65 + (i % 4) * 0.1}s`,
                   "--petal-pink":
                     i % 3 === 0
                       ? "#f5d6dd"

@@ -1,5 +1,9 @@
 # Verification — 25 October 2026
 
+## Transparent circling fairy correction — 27 October 2026
+
+Removed the photographic backdrop. Added a genuinely transparent reference-inspired fairy asset and two circular flights with counter-rotation, followed by flowers and the website reveal. The PNG has an alpha channel spanning 0–255. Lint, production build and all five focused browser tests passed. Browser coverage checks the transparent corner pixel, absence of the forest layer, circular CSS animation, phase progression, Skip/Escape, focus restoration, reduced-motion bypass and desktop/mobile accessibility. Desktop and mobile screenshots were visually reviewed. Earlier full-screen photograph notes below are superseded by this correction.
+
 ## Full-screen fairy update — 27 October 2026
 
 Replaced the small illustrated fairy with the exact supplied forest-fairy photograph in a full-viewport composition. Flowers now fall across the viewport from the entry phase and continue over the website reveal. Lint and production build passed. Five focused browser tests passed for entry/flower/reveal sequencing, Skip/Escape, focus restoration, reduced-motion bypass, and mobile/desktop axe checks with no serious or critical violations. A further assertion checks that the fairy image occupies the entire viewport layout. Latest visual captures: `artifacts/fairy-flowers-desktop.png`, `artifacts/fairy-flowers-mobile.png` and `docs/fairy-welcome.png`. Earlier Lighthouse measurements below are historical and do not measure this introductory scene.

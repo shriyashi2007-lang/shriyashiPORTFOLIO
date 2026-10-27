@@ -10,11 +10,11 @@ Browser contact tests start an isolated second development server with a mock en
 
 ## Magical opening
 
-A full-screen fairy entrance welcomes visitors on each full page load using the exact forest-fairy reference supplied on 27 October. The unedited photograph fills the scene with a gentle entrance/zoom, a softly extended forest background, sparkles and falling pink/gold flowers from the beginning. Flowers continue while the scene dissolves into the portfolio. This replaces the earlier small illustrated fairy. The scene lasts about six seconds. It is a photographic composition with CSS motion, not an AI-generated video or a network-loading indicator.
+A reference-inspired fairy with a genuinely transparent background flies independently over the burgundy welcome screen. She makes two complete circles, stays upright with a counter-rotation, then showers pink/gold flowers as the website appears. There is no forest or rectangular photograph in the scene. The scene lasts about six seconds and is an introductory animation, not a network-loading indicator.
 
 Visitors can choose **Skip to portfolio** or press **Escape**. Keyboard focus stays within the welcome while it is open, then returns to the site. Scrolling and background interaction are restored on dismissal. Visitors who prefer reduced motion open the portfolio immediately. Ordinary in-page navigation does not replay the welcome.
 
-The supplied image is `public/assets/fairy/forest-fairy.png`. Timing and flower elements are in `src/components/ui/FairyWelcome.tsx`; full-screen composition, entrance and falling flowers are in `src/styles/fairy-welcome.css`. Desktop preserves the full figure against an extended forest backdrop; mobile fills the portrait viewport. Run `node scripts/review-fairy.mjs` against the local dev server to capture desktop and mobile states.
+The transparent character is `public/assets/fairy/fairy-cutout.png`, generated from the supplied reference with a fully opaque embroidered ivory gown. The original reference is retained separately as `forest-fairy.png` and is not used by the intro. Timing and flowers are in `src/components/ui/FairyWelcome.tsx`; orbit, counter-rotation and reveal styling are in `src/styles/fairy-welcome.css`. Run `node scripts/review-fairy.mjs` against the local dev server to capture desktop and mobile states.
 
 ![Lotus-pink fairy welcome](docs/fairy-welcome.png)
 

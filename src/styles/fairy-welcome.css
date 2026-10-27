@@ -1,4 +1,4 @@
-/* Full-screen photographic fairy entrance, using the user's supplied image unchanged. */
+/* Transparent fairy circles independently; flowers reveal the portfolio. */
 .fairy-welcome {
   position: fixed;
   inset: 0;
@@ -18,14 +18,64 @@
 }
 .fairy-scene {
   overflow: hidden;
-  background: #263527;
+  background: radial-gradient(
+    ellipse at 50% 44%,
+    #803047,
+    #410b20 55%,
+    #280811
+  );
 }
-.fairy-forest-backdrop {
+.fairy-orbit {
+  --orbit-size: min(35vh, 300px);
+  --fairy-size: min(43vh, 380px);
   position: absolute;
-  inset: -5%;
-  background: url("/assets/fairy/forest-fairy.png") center/cover no-repeat;
-  filter: blur(20px) brightness(0.65);
-  transform: scale(1.08);
+  left: 50%;
+  top: 43%;
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  transform: translate(-50%, -50%) rotate(-90deg);
+  animation: fairy-circle 1.6s linear 2;
+}
+.fairy-rider {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  width: var(--fairy-size);
+  height: var(--fairy-size);
+  transform: translate(-50%, -50%) rotate(90deg);
+  animation: fairy-counter-circle 1.6s linear 2;
+}
+.fairy-circle-guide {
+  position: absolute;
+  left: 50%;
+  top: 43%;
+  width: min(52vh, 460px);
+  height: min(52vh, 460px);
+  border: 1px solid #efc9db24;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 75px #efbadb09;
+}
+.fairy-flight-trail {
+  position: absolute;
+  left: 35%;
+  top: 70%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #f6d4e9;
+  box-shadow:
+    -15px 4px 2px #edb6d8,
+    -31px 13px 2px #f0d9a6,
+    -49px 5px 3px #dc8bbb,
+    -66px 18px 4px #edbfcd;
+  opacity: 0.8;
+}
+.is-blooming .fairy-orbit,
+.is-leaving .fairy-orbit,
+.is-blooming .fairy-rider,
+.is-leaving .fairy-rider {
+  animation: none;
 }
 .fairy-portrait {
   position: absolute;
@@ -34,14 +84,7 @@
   height: 100%;
   object-fit: contain;
   object-position: center;
-  animation: fairy-arrival 3.2s cubic-bezier(0.22, 1, 0.36, 1) both;
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 17%,
-    #000 83%,
-    transparent
-  );
+  filter: drop-shadow(0 0 15px #edb8ce55);
 }
 .welcome-shade {
   background:
@@ -50,14 +93,14 @@
       #170c19f0,
       transparent 39%,
       transparent 75%,
-      #101d1b99
+      #310a1699
     ),
     linear-gradient(
       90deg,
-      #18231b55,
+      #30071933,
       transparent 35%,
       transparent 65%,
-      #18231b55
+      #30071933
     );
 }
 .fairy-welcome:before {
@@ -210,9 +253,12 @@
   top: -65px;
   opacity: 0;
   color: var(--petal-pink);
-  animation: fairy-flower-fall var(--petal-duration) var(--petal-delay) linear
-    infinite;
   will-change: transform, opacity;
+}
+.is-blooming .falling-flower,
+.is-leaving .falling-flower {
+  animation: fairy-flower-fall var(--petal-duration) var(--petal-delay) linear
+    both;
 }
 .whole-flower {
   font:
@@ -251,14 +297,20 @@
   opacity: 0;
   transition: opacity 0.3s;
 }
-@keyframes fairy-arrival {
-  0% {
-    opacity: 0.3;
-    transform: translateY(3%) scale(0.96);
+@keyframes fairy-circle {
+  from {
+    transform: translate(-50%, -50%) rotate(-90deg);
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1.03);
+  to {
+    transform: translate(-50%, -50%) rotate(270deg);
+  }
+}
+@keyframes fairy-counter-circle {
+  from {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-270deg);
   }
 }
 @keyframes fairy-flower-fall {
@@ -298,10 +350,19 @@
   }
 }
 @media (max-width: 600px) {
+  .fairy-orbit {
+    --orbit-size: 110px;
+    --fairy-size: min(38vh, 270px);
+    top: 42%;
+  }
+  .fairy-circle-guide {
+    top: 42%;
+    width: 260px;
+    height: 260px;
+  }
   .fairy-portrait {
-    object-fit: cover;
-    object-position: 50% 45%;
-    mask-image: none;
+    object-fit: contain;
+    object-position: center;
   }
   .fairy-welcome:before {
     inset: 10px;
@@ -349,7 +410,7 @@
       #170c19f7,
       transparent 47%,
       transparent 78%,
-      #10201999
+      #30071999
     );
   }
 }

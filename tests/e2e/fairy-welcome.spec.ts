@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
     route.fulfill({ json: [] }),
   );
 });
-test("full-screen reference fairy enters with flowers and reveals the interactive site", async ({
+test("transparent fairy circles, sprinkles flowers and reveals the site", async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
@@ -16,15 +16,28 @@ test("full-screen reference fairy enters with flowers and reveals the interactiv
   await expect(intro).toHaveClass(/is-flying/);
   await expect(intro.locator(".fairy-portrait")).toHaveAttribute(
     "src",
-    "/assets/fairy/forest-fairy.png",
+    "/assets/fairy/fairy-cutout.png",
   );
+  await expect(intro.locator(".fairy-forest-backdrop")).toHaveCount(0);
+  expect(
+    await intro.locator(".fairy-portrait").evaluate(async (el) => {
+      if (!(el instanceof HTMLImageElement))
+        throw new Error("Expected fairy image");
+      await el.decode();
+      const canvas = document.createElement("canvas");
+      canvas.width = el.naturalWidth;
+      canvas.height = el.naturalHeight;
+      const context = canvas.getContext("2d");
+      if (!context) throw new Error("Canvas unavailable");
+      context.drawImage(el, 0, 0);
+      return context.getImageData(0, 0, 1, 1).data[3];
+    }),
+  ).toBe(0);
   expect(
     await intro
-      .locator(".fairy-portrait")
-      .evaluate((el) => ({ width: el.clientWidth, height: el.clientHeight })),
-  ).toEqual(
-    await page.evaluate(() => ({ width: innerWidth, height: innerHeight })),
-  );
+      .locator(".fairy-orbit")
+      .evaluate((el) => getComputedStyle(el).animationName),
+  ).toBe("fairy-circle");
   expect(
     await page.locator("main").evaluate((el) => !!el.closest("[inert]")),
   ).toBe(true);
