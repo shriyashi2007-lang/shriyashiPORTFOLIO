@@ -17,20 +17,6 @@ export default function FairyWelcome({
     "flying",
   );
   const skip = useRef<HTMLButtonElement>(null);
-  const [flightPath, setFlightPath] = useState("");
-  useLayoutEffect(() => {
-    const resize = () => {
-      const w = window.innerWidth,
-        h = window.innerHeight;
-      const flightY = (value: number) => h * (0.5 + (value - 0.5) * 0.16);
-      setFlightPath(
-        `path("M ${1.45 * w} ${flightY(0.5)} C ${1.05 * w} ${flightY(0.23)}, ${0.5 * w} ${flightY(0.275)}, ${0.57 * w} ${flightY(0.48)} C ${0.62 * w} ${flightY(0.71)}, ${1.06 * w} ${flightY(0.68)}, ${0.94 * w} ${flightY(0.475)} C ${0.8 * w} ${flightY(0.2)}, ${0.2 * w} ${flightY(0.26)}, ${0.3 * w} ${flightY(0.5)} C ${0.42 * w} ${flightY(0.745)}, ${0.78 * w} ${flightY(0.675)}, ${0.63 * w} ${flightY(0.465)} C ${0.45 * w} ${flightY(0.24)}, ${0.12 * w} ${flightY(0.31)}, ${-0.45 * w} ${flightY(0.5)}")`,
-      );
-    };
-    resize();
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
-  }, []);
   useEffect(() => {
     const timeout = setTimeout(
       () =>
@@ -72,7 +58,6 @@ export default function FairyWelcome({
       aria-labelledby="fairy-welcome-title"
       aria-describedby="fairy-welcome-description"
       data-testid="fairy-welcome"
-      style={{ "--flight-path": flightPath } as CSSProperties}
     >
       <div className="fairy-scene" aria-hidden="true">
         <div className="fairy-circle-guide" />

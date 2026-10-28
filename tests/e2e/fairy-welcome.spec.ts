@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
     route.fulfill({ json: [] }),
   );
 });
-test("transparent fairy circles, sprinkles flowers and reveals the site", async ({
+test("transparent fairy stays on the left and reveals the site", async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
@@ -35,40 +35,26 @@ test("transparent fairy circles, sprinkles flowers and reveals the site", async 
       return context.getImageData(0, 0, 1, 1).data[3];
     }),
   ).toBe(0);
-  expect(
-    await intro
-      .locator(".fairy-orbit")
-      .evaluate((el) => getComputedStyle(el).animationName),
-  ).toBe("fairy-across-screen");
-  const trajectory = await intro.locator(".fairy-orbit").evaluate((el) => {
-    const animation = el.getAnimations()[0];
-    animation.pause();
-    const points = Array.from({ length: 9 }, (_, i) => {
-      animation.currentTime = i * 525;
-      const box = el.getBoundingClientRect();
-      return { x: box.x + box.width / 2, y: box.y + box.height / 2 };
-    });
-    animation.currentTime = 0;
-    animation.play();
-    return points;
-  });
   const viewport = await page.evaluate(() => ({
     width: innerWidth,
     height: innerHeight,
   }));
-  expect(trajectory[0].x).toBeGreaterThan(viewport.width);
-  expect(trajectory[8].x).toBeLessThan(0);
-  expect(
-    Math.max(...trajectory.map((point) => point.y)) -
-      Math.min(...trajectory.map((point) => point.y)),
-  ).toBeGreaterThan(viewport.height * 0.02);
-  const fairySize = await intro
-    .locator(".fairy-portrait")
-    .evaluate((el) => ({
-      height: el.clientHeight,
-      transform: getComputedStyle(el).transform,
+  const position = await intro.locator(".fairy-orbit").evaluate((el) => {
+    const box = el.getBoundingClientRect();
+    return {
+      x: box.x + box.width / 2,
       animation: getComputedStyle(el).animationName,
-    }));
+      path: getComputedStyle(el).offsetPath,
+    };
+  });
+  expect(position.animation).toBe("none");
+  expect(position.path).toBe("none");
+  expect(position.x).toBeLessThan(viewport.width / 2);
+  const fairySize = await intro.locator(".fairy-portrait").evaluate((el) => ({
+    height: el.clientHeight,
+    transform: getComputedStyle(el).transform,
+    animation: getComputedStyle(el).animationName,
+  }));
   expect(fairySize.height).toBeGreaterThanOrEqual(viewport.height * 0.9);
   expect(fairySize.transform).toBe("none");
   expect(fairySize.animation).toBe("none");

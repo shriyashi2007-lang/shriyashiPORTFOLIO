@@ -1,3 +1,5 @@
+The welcome fairy now stands still on the left, upright at 92% of the screen height. Sparkling flowers and the circular portfolio reveal remain.
+
 # Shriyashi — Developer Portfolio
 
 A standalone React 18 + TypeScript portfolio for Shriyashi. Source repository: https://github.com/shriyashi2007-lang/shriyashiPORTFOLIO. Originally developed in a separate `portfolio/` folder alongside DevTrack; this repository contains only the portfolio.

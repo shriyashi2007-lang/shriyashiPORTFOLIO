@@ -628,3 +628,18 @@
     transform: scale(1.1);
   }
 }
+/* Stationary full-height fairy on the left. */
+.fairy-orbit,
+.fairy-welcome.is-blooming .fairy-orbit,
+.fairy-welcome.is-leaving .fairy-orbit {
+  left: calc(25vw - 46dvh);
+  top: 4dvh;
+  offset-path: none;
+  offset-distance: 0%;
+  animation: none;
+  transform: none;
+  visibility: visible;
+}
+.fairy-flight-trail {
+  display: none;
+}
