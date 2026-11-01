@@ -10,7 +10,7 @@ export const config = {
     "Problem Solver",
   ],
   location: "New Delhi, India",
-  email: "Shriyashi2007@gmail.com",
+  email: "shriyashi2007@gmail.com",
   github: {
     username:
       (import.meta.env.VITE_GITHUB_USERNAME as string | undefined)?.trim() ||
