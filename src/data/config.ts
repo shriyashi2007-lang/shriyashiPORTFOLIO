@@ -27,7 +27,7 @@ export const config = {
     degree: "B.Tech in Computer Science Engineering",
     school: "K.R. Mangalam University",
     years: "2024–2028",
-    cgpa: "8.8+",
+    cgpa: "9+",
     scholarship: "35% Merit Scholarship",
   },
   sih2026: {
@@ -60,6 +60,13 @@ export const config = {
       subtitle: "College AI Hackathon",
       date: "2025",
       description: "Participated in the Arambhathon 2025 AI hackathon.",
+      type: "Hackathon participation",
+    },
+    {
+      title: "Additional Hackathon Participation",
+      subtitle: "College hackathon",
+      date: "2025",
+      description: "Participated in an additional college hackathon.",
       type: "Hackathon participation",
     },
   ],
