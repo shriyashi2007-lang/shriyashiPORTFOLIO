@@ -1325,3 +1325,27 @@ summary:focus-visible {
     left: 0;
   }
 }
+
+.device-profile {
+  position: absolute;
+  inset: 58px 18px 34px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #321022;
+  z-index: 1;
+}
+.device-profile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.82) contrast(0.96);
+}
+.portfolio-device > .device-browser,
+.portfolio-device > .device-top,
+.portfolio-device > .device-title,
+.portfolio-device > .device-subtitle,
+.portfolio-device > .device-bottom {
+  z-index: 2;
+}

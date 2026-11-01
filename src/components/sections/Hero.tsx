@@ -141,27 +141,11 @@ export default function Hero() {
               <div className="device-subtitle">
                 A COLLECTION OF IDEAS & EXPLORATIONS
               </div>
-              <div className="botanical-art" aria-hidden="true">
-                {Array.from({ length: 8 }, (_, i) => (
-                  <span
-                    key={i}
-                    style={{ "--petal": i } as React.CSSProperties}
-                  />
-                ))}
-                <i />
-              </div>
-              <div
-                className="sticker device-monogram"
-                aria-label="Shriyashi monogram"
-              >
-                {hasAsset(profile) ? (
-                  <img src={profile} width="400" height="500" alt="Shriyashi" />
-                ) : (
-                  <span>
-                    S<span className="sticker-dot">.</span>
-                  </span>
-                )}
-              </div>
+              {hasAsset(profile) && (
+                <div className="device-profile" aria-label="Shriyashi portrait">
+                  <img src={profile} width="600" height="1067" alt="Shriyashi" />
+                </div>
+              )}
               <div className="device-bottom">
                 <span>EXPLORE THE POSSIBILITIES</span>
                 <ArrowDown size={14} />
