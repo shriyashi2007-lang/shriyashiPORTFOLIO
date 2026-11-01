@@ -122,34 +122,11 @@ export default function Hero() {
           <div className="hero-visual">
             <div className="device-halo" aria-hidden="true" />
             <div className="portfolio-device">
-              <div className="device-island" aria-hidden="true" />
-              <div className="device-browser">
-                <span>shriyashi / portfolio</span>
-                <ArrowUpRight size={12} />
-              </div>
-              <div className="device-top">
-                <span>
-                  SHRIYASHI<span className="accent">.</span>
-                </span>
-                <span aria-hidden="true">☰</span>
-              </div>
-              <p className="device-title">
-                Thoughtful code.
-                <br />
-                <em>Endless curiosity.</em>
-              </p>
-              <div className="device-subtitle">
-                A COLLECTION OF IDEAS & EXPLORATIONS
-              </div>
               {hasAsset(profile) && (
                 <div className="device-profile" aria-label="Shriyashi portrait">
                   <img src={profile} width="600" height="1067" alt="Shriyashi" />
                 </div>
               )}
-              <div className="device-bottom">
-                <span>EXPLORE THE POSSIBILITIES</span>
-                <ArrowDown size={14} />
-              </div>
             </div>
             <div className="device-note">
               <span className="note-line" />

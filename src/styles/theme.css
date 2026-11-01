@@ -1328,9 +1328,9 @@ summary:focus-visible {
 
 .device-profile {
   position: absolute;
-  inset: 58px 18px 34px;
+  inset: 0;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 35px;
   background: #321022;
   z-index: 1;
 }
@@ -1341,6 +1341,14 @@ summary:focus-visible {
   object-fit: cover;
   object-position: center top;
   filter: saturate(0.82) contrast(0.96);
+}
+.portfolio-device > .device-island,
+.portfolio-device > .device-browser,
+.portfolio-device > .device-top,
+.portfolio-device > .device-title,
+.portfolio-device > .device-subtitle,
+.portfolio-device > .device-bottom {
+  display: none;
 }
 .portfolio-device > .device-browser,
 .portfolio-device > .device-top,
