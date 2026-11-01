@@ -1,11 +1,8 @@
 import { useRef } from "react";
 import {
   motion,
-  useInView,
   useReducedMotion,
   useScroll,
-  useSpring,
-  useTransform,
 } from "motion/react";
 import { ArrowUpRight, Award, GraduationCap, MoveUpRight } from "lucide-react";
 import { config, hasAsset, verifiedHackathons } from "@/data/config";
@@ -13,19 +10,7 @@ import { skills } from "@/data/skills";
 import { education } from "@/data/education";
 import { BannerBar, Reveal, SectionShell } from "@/components/ui/Primitives";
 function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inside = useInView(ref, { once: true });
-  const reduce = useReducedMotion();
-  const spring = useSpring(inside ? value : 0, { duration: 1200, bounce: 0 });
-  const display = useTransform(
-    spring,
-    (v) => `${Number(v.toFixed(value % 1 ? 1 : 0))}${suffix}`,
-  );
-  return (
-    <span ref={ref}>
-      {reduce ? `${value}${suffix}` : <motion.span>{display}</motion.span>}
-    </span>
-  );
+  return <span>{`${value}${suffix}`}</span>;
 }
 function Education() {
   const ref = useRef<HTMLDivElement>(null);
