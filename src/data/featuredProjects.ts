@@ -7,7 +7,7 @@ export const featuredProjects = [
     tags: ["React", "JavaScript", "Tailwind CSS"],
     art: "code",
     color: "blue",
-    liveUrl: null,
+    liveUrl: "https://dev-track-nszh.vercel.app/",
   },
   {
     repo: "Ai-Productivity-Dashboard",
