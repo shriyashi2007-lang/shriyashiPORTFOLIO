@@ -1342,6 +1342,47 @@ summary:focus-visible {
   object-position: center top;
   filter: saturate(0.82) contrast(0.96);
 }
+
+.scroll-rail {
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  right: 18px;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  transform: translateY(-50%);
+  color: var(--cream, #f3e8d4);
+}
+.scroll-rail-track {
+  position: relative;
+  width: 18px;
+  height: 170px;
+  padding: 0;
+  border: 1px solid #f1d9b866;
+  border-radius: 999px;
+  background: #3b0d1b66;
+  cursor: pointer;
+}
+.scroll-rail-thumb {
+  position: absolute;
+  left: 50%;
+  width: 8px;
+  height: 30px;
+  border-radius: 999px;
+  background: linear-gradient(#f8dba5, #e7a6b8);
+  box-shadow: 0 0 14px #f1c8c966;
+  transform: translate(-50%, -50%);
+  transition: top 0.15s ease-out;
+}
+.scroll-rail-label {
+  font: 600 9px/1 Inter, sans-serif;
+  letter-spacing: 0.12em;
+}
+@media (max-width: 700px) {
+  .scroll-rail { right: 8px; }
+  .scroll-rail-track { height: 120px; width: 14px; }
+}
 .portfolio-device > .device-island,
 .portfolio-device > .device-browser,
 .portfolio-device > .device-top,

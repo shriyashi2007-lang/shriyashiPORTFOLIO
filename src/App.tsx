@@ -11,6 +11,7 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import Footer from "@/components/layout/Footer";
 import FairyWelcome from "@/components/ui/FairyWelcome";
+import ScrollRail from "@/components/ui/ScrollRail";
 const Story = lazy(() => import("@/components/sections/Story"));
 const Projects = lazy(() => import("@/components/sections/Projects"));
 const Experience = lazy(() =>
@@ -57,6 +58,7 @@ export default function App() {
         </main>
         <Footer />
       </div>
+      {!opening && <ScrollRail />}
     </MotionConfig>
   );
 }
