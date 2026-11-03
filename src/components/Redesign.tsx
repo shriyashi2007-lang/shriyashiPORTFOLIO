@@ -3,13 +3,14 @@ import { ArrowDown, ArrowUpRight, Mail, X } from "lucide-react";
 import { config } from "@/data/config";
 import { featuredProjects } from "@/data/featuredProjects";
 import "@/styles/redesign.css";
+import "@/styles/redesign-overrides.css";
 
 const roles = ["Web Developer", "UI/UX Designer", "Data Explorer", "Creative Builder"];
 const doors = [
-  ["Web Development", "Builds that feel fast, clear and alive.", "#355caa"],
-  ["App Development", "Useful tools for everyday momentum.", "#55446f"],
-  ["UI/UX Design", "Interfaces with a little more feeling.", "#71886b"],
-  ["Graphic Design", "Visual systems with a point of view.", "#b66b42"],
+  ["Web Development", "Builds that feel fast, clear and alive.", "#ead7b7"],
+  ["App Development", "Useful tools for everyday momentum.", "#d6c09b"],
+  ["UI/UX Design", "Interfaces with a little more feeling.", "#b88761"],
+  ["Graphic Design", "Visual systems with a point of view.", "#c97873"],
 ] as const;
 
 export default function Redesign() {
