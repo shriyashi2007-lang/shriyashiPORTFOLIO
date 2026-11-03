@@ -2,11 +2,13 @@
 .doors-section, .new-story { background: #6b1834; }
 .door-shape { color: #4b1b22; box-shadow: inset 0 -80px 100px #7b314022, 0 18px 30px #1d0710aa; }
 .new-projects article > img, .door-modal article > img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; margin-bottom: 18px; filter: saturate(.8); }
-.door-modal { background: #f8dce5; color: #5a1730; }
-.door-modal h2 { color: #7c1f42; }
-.door-modal article { background: #fff0f4; border-color: #8d345455; box-shadow: 0 12px 28px #7c1f4218; }
-.door-modal article h3 { color: #6b1834; }
-.door-modal > button { color: #6b1834; }
+.door-modal { background: #65152f; color: #fff8fb; }
+.door-modal h2 { color: #f4b8cf; }
+.door-modal > p { color: #fff8fb; }
+.door-modal article { background: #7b2042; border-color: #f4b8cf88; box-shadow: 0 12px 28px #2d081866; }
+.door-modal article h3 { color: #f4b8cf; }
+.door-modal article span { color: #fff8fb; }
+.door-modal > button { color: #fff8fb; }
 .magic-door { position: relative; }
 .magic-door.is-opening .door-shape { animation: gate-wave 720ms cubic-bezier(.22,1,.36,1) both; }
 .magic-door.is-opening .door-shape::after {
