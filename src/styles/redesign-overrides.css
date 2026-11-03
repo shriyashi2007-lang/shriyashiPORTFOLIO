@@ -1,6 +1,7 @@
 .new-site { background: #6b1834; }
 .doors-section, .new-story { background: #6b1834; }
 .door-shape { color: #4b1b22; box-shadow: inset 0 -80px 100px #7b314022, 0 18px 30px #1d0710aa; }
+.new-projects article > img, .door-modal article > img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; margin-bottom: 18px; filter: saturate(.8); }
 .magic-door { position: relative; }
 .magic-door.is-opening .door-shape { animation: gate-wave 720ms cubic-bezier(.22,1,.36,1) both; }
 .magic-door.is-opening .door-shape::after {
