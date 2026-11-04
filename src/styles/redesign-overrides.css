@@ -27,6 +27,10 @@
 .new-site h1, .new-site h2, .new-site h3 { color: #7b1e3b; }
 .new-site .new-story h2, .new-site .new-contact h2, .new-site .doors-section h2 { color: #f3bfd2; }
 .new-site .new-work h2 { color: #7b1e3b; }
+.new-story { background: #e7a5b5; color: #fff; }
+.new-story h2, .new-story strong, .new-story h3, .new-story p, .new-story span { color: #fff; }
+.new-story .story-line { border-left-color: #fff8; }
+.new-story .story-line article { border-bottom-color: #fff8; }
 .magic-door { position: relative; }
 .magic-door.is-opening .door-shape { animation: gate-wave 720ms cubic-bezier(.22,1,.36,1) both; }
 .magic-door.is-opening .door-shape::after {
