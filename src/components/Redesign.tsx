@@ -5,6 +5,7 @@ import { featuredProjects } from "@/data/featuredProjects";
 import { skills } from "@/data/skills";
 import "@/styles/redesign.css";
 import "@/styles/redesign-overrides.css";
+import PointerCursor from "@/components/ui/PointerCursor";
 
 const roles = ["Web Developer", "UI/UX Designer", "Data Explorer", "Creative Builder"];
 const doors = [
@@ -28,6 +29,7 @@ export default function Redesign() {
   useEffect(() => { const id = window.setInterval(() => setRole((v) => (v + 1) % roles.length), 2200); return () => window.clearInterval(id); }, []);
   const selected = useMemo(() => doors.find(([name]) => name === open), [open]);
   return <div className="new-site">
+    <PointerCursor />
     <header className="new-nav"><a href="#top" className="new-logo">SHRIYASHI<span>.</span></a><nav>{["Home", "Web Development", "Skills", "Frontend Projects", "Tools I’ve Used", "My story", "Contact"].map((item) => <a key={item} href={item === "Home" ? "#top" : `#${item.toLowerCase().replaceAll(" ", "-").replace("’", "")}`}>{item}</a>)}</nav><time>{new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })} — {new Date().toLocaleDateString("en-IN", { day: "2-digit", month: "long", year: "numeric" })}</time></header>
     <main id="top">
       <section className="new-hero"><div className="hero-tag">● Independent freelancer</div><div className="hero-layout"><div><p className="new-kicker">A LITTLE CURIOSITY. A LOT OF BUILDING.</p><h1>Hi, I’m<br /><em>Shriyashi.</em></h1><p className="new-intro">I am a <span className="role-sticker">{roles[role]}<i>✦</i></span></p><p className="new-copy">Computer Science student with a 9+ CGPA, a 35% merit scholarship and a habit of turning ideas into useful things.</p><div className="new-actions"><a className="new-pill" href="#contact">Start a project <ArrowUpRight size={17} /></a><a href="#doors">See my work <ArrowDown size={16} /></a></div></div><div className="portrait-card"><img src="/assets/profile/profile.webp" alt="Shriyashi" /><span>MY ABILITY CARD</span></div></div><div className="hero-foot"><span>AVAILABLE FOR WORK</span><a href="#doors">SCROLL DOWN ↓</a></div></section>

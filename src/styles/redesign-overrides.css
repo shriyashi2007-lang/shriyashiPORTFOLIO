@@ -29,6 +29,11 @@
 .new-site .new-work h2 { color: #7b1e3b; }
 .new-site .new-copy, .new-site .new-intro, .new-site .hero-foot, .new-site .new-work > p, .new-site .new-projects p { color: #7b1e3b; }
 .new-site .doors-section .door-shape small, .new-site .doors-section .door-shape b { color: #7b1e3b; }
+.pointer-cursor { position: fixed; z-index: 100; width: 18px; height: 18px; border: 1px solid #7b1e3b; border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); transition: width .2s ease, height .2s ease, background .2s ease, border-color .2s ease; mix-blend-mode: multiply; }
+.pointer-cursor::after { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: #7b1e3b; }
+.pointer-cursor.is-hovering { width: 42px; height: 42px; background: #f4b8cf99; border-color: #7b1e3b; }
+.pointer-cursor.is-hovering::after { inset: 16px; }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) { .pointer-cursor { display: none; } }
 .new-story { background: #e7a5b5; color: #fff; }
 .new-story h2, .new-story strong, .new-story h3, .new-story p, .new-story span { color: #fff; }
 .new-story .story-line { border-left-color: #fff8; }
