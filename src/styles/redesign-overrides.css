@@ -49,6 +49,20 @@
   animation: gate-ripple 720ms ease-out both;
   pointer-events: none;
 }
+.magic-door.is-opening .door-shape::before {
+  content: "✦";
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 48%;
+  color: #fff7dc;
+  font-size: 72px;
+  line-height: 1;
+  text-shadow: 0 0 12px #fff, 0 0 35px #f4b8cf, 0 0 70px #f4b8cf;
+  transform: translate(-50%, -50%) scale(.1) rotate(-20deg);
+  animation: gate-boom 720ms cubic-bezier(.22,1,.36,1) both;
+  pointer-events: none;
+}
 @keyframes gate-wave {
   0% { transform: translateY(0) scale(1); filter: brightness(1); }
   35% { transform: translateY(-16px) scale(1.035); filter: brightness(1.12); }
@@ -58,4 +72,10 @@
 @keyframes gate-ripple {
   0% { opacity: .8; transform: scale(.75); }
   100% { opacity: 0; transform: scale(1.2); }
+}
+@keyframes gate-boom {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.1) rotate(-20deg); }
+  28% { opacity: 1; transform: translate(-50%, -50%) scale(1.15) rotate(10deg); }
+  58% { opacity: .85; transform: translate(-50%, -50%) scale(.75) rotate(45deg); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(2.3) rotate(90deg); }
 }
